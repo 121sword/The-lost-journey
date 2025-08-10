@@ -5,9 +5,6 @@
 #Made by Ayan Adhikari
 #Version 15 (Final)
 #Title: The Lost Journey
-#This is a CYOA game for a school project
-#If you are reading through this code go through my notes first since they will help you find specific sections a lot easier
-#They are submitted between version 5 and 6 on google classroom
 #-------------------------------------------------------------------------------------------------------------------------------------#
 #Version info: 1. Updated forest map
 #2. Added boss admiring cloak and dealing reduced damage to anyone with the cloak
@@ -895,8 +892,7 @@ print ("I am the narrator who will give you options and occasional advice throug
 while play == False:
   print ("If you have played this game before and already know your calibration number then enter it below.")
   print ("Otherwise type 0 if you haven't calibrated the game on the device you are currently playing on.\nKeep in mind different devices will require different calibrations and if you are not in full screen then calibration will also be different.")  
-  try: #I am using try and except even though we have not learned it in class.
-    #This is because otherwise it would be annoying to have to restart the ENTIRE game every time the player accidently doesn't type a number.
+  try:
     answer = int(input("> "))
   except:
     enter_number()
@@ -940,7 +936,7 @@ while play == False:
 number = number/2
 number = number + 2 #Text shows up slightly above the middle. (Looks more natural than the middle for some reason)
 #Before the player could choose whether to have text at the top or middle. 
-#This was removed since opening the map had a bug where the text was shown half a line higher which is a big issue if the text is at the top.
+#This was removed since opening the map had a bug where the text was shown half a line higher afterwards which is a big issue if the text is at the top.
 clear()
 print ("Text will now show up in the middle of you screen.")
 print ("Before it was at the top to confirm it was calibrated right.")
@@ -1582,7 +1578,6 @@ while run:
             nex()
           else:
             #This section of code is if the spirit reflects your attack
-            #It is alo randomise how much damage the spirit takes and how much it reflects back to the player
             clear()
             filler_variable = player_damage - 10
             print ("The spirit reflected your attack.")
@@ -1916,12 +1911,8 @@ while run:
         clear_2()
         nex()
         break
-#-------------------------------------------------------------------------------------------------------------------------------------#  
-  #Area 8 (Due to a bug the same if statement had to be put in multiple places and has been turned into a loop in a few of them.
-  #I would remove the extras but I don't know which one actually works and I don't want to accidently break anything. 
-  #Since it took a while to make everything work I'm just not going to change anything unless I have to
-  #In version 13 this was changed from area 6 to area 8 since the plans for areas have changed
-  #To see the changes in areas check the detailed map for the old map and the simple (used for ascii map) for the new area system
+#-------------------------------------------------------------------------------------------------------------------------------------#
+  #Area 8
   elif area == 8:
     if final_boss_damage == 1:
       clear()
@@ -2486,57 +2477,6 @@ while run:
   ////////////////////////////////////////////////////////////////////////""")
         calibrate = number - 28
         clear_2()
-#-------------------------------------------------------------------------------------------------------------------------------------#
-#Explanations for code that hasn't been covered in class
-#-------------------------------------------------------------------------------------------------------------------------------------#
-#Time: Time is a module that allows time to be measured. 
-#In this project it is used for small delays by using time.sleep().
-#-------------------------------------------------------------------------------------------------------------------------------------#
-#Random: Random is a module that can generate random integers by using random.randint().
-#In this project random is used to allow enemies to randomly dodge and with certain enemies who have traits.
-#Enemies with traits such as dodging every attack or having a shield usually have temporary traits.
-#Random is used to slightly randomise how many attacks an enemy can take before losing these traits.
-#-------------------------------------------------------------------------------------------------------------------------------------#
-#Custom functions: def function_name(): is used for creating custom functions. 
-#Anything underneath this ⬆️ that is indented correctly will be ran when the function is ran
-#For example:
-#def hi():
-#  print ("hi")
-#  time.sleep(1)
-#print ("bye")
-#When hi() is ran it will print "hi" and then pause for 1 second but it won't run "bye" since it is outside the loop
-#-------------------------------------------------------------------------------------------------------------------------------------#
-#One other function used inside def() is global which states that a variable was defined outside the function. 
-#Without global if a variable is changed within a function there will be an error.
-#-------------------------------------------------------------------------------------------------------------------------------------#
-#Try and except: Try and except are used to prevent a program from crashing even if the user inputs the wrong data type
-#This is used because this program uses a lot of inputs that are take as an integer. 
-#It works by attempting to take input but if the input is invalid then it runs something else
-#while answer != 1:
-#  try:
-#    answer = int(input("Guess the number: ")
-#  except:
-#    print ("Invalid response.")
-#    continue
-#  if answer == 1:
-#    print ("You guessed the number!")
-#    break
-#  else:
-#    print ("Incorrect, try again.")
-#This code attempts to take input as an integer and if it can take in the input then it continues normally.
-#However if it can't take the input due to it not being an integer then it prints "Invalid response." and goes back to the start of the loop
-#This example is in a while loop since usually under the except: there is a continue to go back to the start of the loop instead of just executing the nex line of code
-#-------------------------------------------------------------------------------------------------------------------------------------#
-#Extra notes:
-#All game breaking bugs have been removed however there are still a few minor bugs
-#For example having to press enter to continue an extra time for no reason
-#There is a strategy that is slightly overpowered since poison potions bypass every defense mechanism.
-#This glitch makes tough enemies like the bird or cursed tree easy since poison makes them die easily
-#The bird will be one shot by poison guaranteed since it has 1 hp and usually has a 90% dodge rate making it very hard to kill
-#This is because throwing a poison potion doesn't check if the enemy will dodge
-#There are some bugs with restarting/ending the game
-#The bugs mentioned above can cause infinite loops
-#Despite these bugs the game is mainly functional
 #-------------------------------------------------------------------------------------------------------------------------------------#
 #Thank you for playing the game!
 #-------------------------------------------------------------------------------------------------------------------------------------#
